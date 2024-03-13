@@ -1,0 +1,67 @@
+.register {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .left-section {
+    flex: 5.5;
+    background-color: #00acee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .left-section img {
+    width: 200px; /* ajusta el tamaño de la imagen según sea necesario */
+  }
+  
+  .right-section {
+    flex: 4.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .right-section img {
+    width: 200px; /* ajusta el tamaño de la imagen según sea necesario */
+    align-items: center;
+  }
+  
+  .register h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .register form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .register input {
+    margin-bottom: 10px;
+  }
+  
+  .register button {
+    background-color: #00acee;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+  }
+  
+  .register a {
+    text-decoration: none;
+    color: #00acee;
+    margin-top: 10px;
+  }
+  
+  .register label {
+    text-align: left; 
+    width: 100%; 
+    margin-bottom: 4px; 
+  }
+  
