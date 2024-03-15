@@ -64,3 +64,8 @@
   width: 100%; /* Hace que el texto ocupe todo el ancho disponible */
   margin-bottom: 4px; /* Espacio adicional entre los labels y los inputs */
 }
+@media (max-width: 768px) {
+  .left-section {
+    display: none; /* Oculta la sección izquierda en dispositivos con un ancho máximo de 768px */
+  }
+}

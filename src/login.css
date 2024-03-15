@@ -21,14 +21,21 @@
     flex: 4.5;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Centra los elementos horizontalmente */
     justify-content: center;
   }
-
-  .right-section img {
-    width: 200px; /* ajusta el tamaño de la imagen según sea necesario */
+  
+  .right-section .content {
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
+  
+  .right-section img {
+    width: 200px; /* ajusta el tamaño de la imagen según sea necesario */
+    margin-bottom: 20px; /* Agrega un margen inferior para separar la imagen del formulario */
+  }
+  
   
   .login h1 {
     font-size: 24px;
@@ -63,5 +70,12 @@
     text-align: left; /* Alinea los textos a la izquierda */
     width: 100%; /* Hace que el texto ocupe todo el ancho disponible */
     margin-bottom: 4px; /* Espacio adicional entre los labels y los inputs */
+
+    @media (max-width: 768px) {
+      .left-section {
+        display: none; /* Oculta la sección izquierda en dispositivos con un ancho máximo de 768px */
+      }
+    }
   }
+
   

@@ -4,6 +4,7 @@ import { Login } from "./Login";
 import { RecoveryForm } from "./RecoveryForm";
 import { Register } from "./Register";
 import { Mapa } from "./Mapa";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {

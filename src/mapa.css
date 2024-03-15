@@ -1,0 +1,54 @@
+.mapa {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00acee; 
+  padding: 10px;
+}
+
+.logo img {
+  width: 100px; 
+}
+
+.options {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  color: white;
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+.greeting {
+  color: white;
+  display: flex; /* Convertir en contenedor flex */
+  align-items: center; /* Alinear elementos verticalmente */
+}
+
+.greeting p {
+  margin-left: 10px; /* Espacio entre el saludo y el icono */
+}
+
+.map-section {
+  position: absolute;
+}
+
+.sandwich-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #00acee;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 100%;
+  font-size: 24px;
+  cursor: pointer;
+}

@@ -16,7 +16,7 @@ export function Register() {
 
   return (
     <div className="register">
-      <div className="left-section">
+      <div className="left-section" style={{ display: window.innerWidth <= 768 ? 'none' : 'flex' }}>
         <h1>Bienvenido a BiciApp</h1>
         <p>Únete a nosotros para descubrir el mundo en dos ruedas.</p>
         <img src={PersonaCiclaColor} alt="PersonaEnCicla" />
