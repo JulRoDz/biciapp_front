@@ -19,14 +19,23 @@ export function Login() {
       setCorreoError("Por favor ingresa un correo válido");
       return;
     }
+    setCorreoError(""); // Resetear el error si es válido
+
+    // Validar la contraseña
     if (!contrasena || !contrasena.trim()) {
       setContrasenaError("Por favor ingresa una contraseña válida");
       return;
     }
-    if (contrasena.length < 6) {
-      setContrasenaError("La contraseña debe tener al menos 6 caracteres");
+    if (
+      !/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}/.test(contrasena)
+    ) {
+      setContrasenaError(
+        "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial"
+      );
       return;
     }
+    setContrasenaError(""); // Resetear el error si es válida
+
     // Aquí se manejaría el inicio de sesión
   };
 

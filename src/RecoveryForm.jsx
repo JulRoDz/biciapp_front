@@ -17,7 +17,7 @@ export function RecoveryForm() {
 
     if (estado === "correo") {
       // Validación del correo electrónico
-      if (!correo.includes("@")) {
+      if (!validateEmail(correo)) {
         setErrors({ correo: "Por favor ingresa un correo electrónico válido" });
         return;
       }
@@ -31,8 +31,8 @@ export function RecoveryForm() {
       setEstado("contrasena");
     } else {
       // Validación de la contraseña
-      if (password.length < 6) {
-        setErrors({ password: "La contraseña debe tener al menos 6 caracteres" });
+      if (!validatePassword(password)) {
+        setErrors({ password: "La contraseña debe tener al menos 8 caracteres, una minúscula, una mayúscula, un número y un carácter especial" });
         return;
       }
 
@@ -45,6 +45,18 @@ export function RecoveryForm() {
       console.log("Nueva contraseña:", password);
       // Lógica para actualizar la contraseña
     }
+  };
+
+  // Función para validar correo electrónico
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  // Función para validar contraseña
+  const validatePassword = (password) => {
+    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return re.test(password);
   };
 
   return (
@@ -92,11 +104,8 @@ export function RecoveryForm() {
                 name="campo"
                 value={estado === "correo" ? correo : codigo}
                 onChange={(e) => estado === "correo" ? setCorreo(e.target.value) : setCodigo(e.target.value)}
-                pattern={estado === "correo" ? "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" : "\\d{6}"}
                 required
-                title={estado === "correo" ? "Por favor ingresa un correo electrónico válido" : "El código debe tener 6 dígitos"}
-            />
-
+              />
               {errors.correo && <p className="error-message">{errors.correo}</p>} {/* Mostrar mensaje de error */}
             </>
           )}
