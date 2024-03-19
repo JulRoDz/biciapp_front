@@ -90,7 +90,7 @@ export function Register() {
                         id="nombre"
                         name="nombre"
                         value={nombre}
-                        onChange={(e) => setNombre(e.target.value)}
+                        onChange={(e) => setNombre(e.target.value)} // Guardar el nombre en el estado
                     />
                     {errores.nombre && <p className="error">{errores.nombre}</p>}
                     <label htmlFor="correo">Correo</label>
@@ -99,7 +99,7 @@ export function Register() {
                         id="correo"
                         name="correo"
                         value={correo}
-                        onChange={(e) => setCorreo(e.target.value)}
+                        onChange={(e) => setCorreo(e.target.value)} // Guardar el correo en el estado
                     />
                     {errores.correo && <p className="error">{errores.correo}</p>}
                     <label htmlFor="contrasena">Contraseña</label>
@@ -108,7 +108,7 @@ export function Register() {
                         id="contrasena"
                         name="contrasena"
                         value={contrasena}
-                        onChange={handleContrasenaChange}
+                        onChange={handleContrasenaChange} // Guardar la contraseña en el estado
                     />
                     {errores.contrasena && <p className="error">{errores.contrasena}</p>}
                     <label htmlFor="confirmarContrasena">Confirmar Contraseña</label>
@@ -117,7 +117,7 @@ export function Register() {
                         id="confirmarContrasena"
                         name="confirmarContrasena"
                         value={confirmarContrasena}
-                        onChange={handleConfirmarContrasenaChange}
+                        onChange={handleConfirmarContrasenaChange} // Guardar la confirmación de la contraseña en el estado
                     />
                     {errores.confirmarContrasena && <p className="error">{errores.confirmarContrasena}</p>}
                     <button type="submit">Registrarse</button>

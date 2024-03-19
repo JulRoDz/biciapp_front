@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { Login } from "./Login";
 import { RecoveryForm } from "./RecoveryForm";
 import { Register } from "./Register";
-import { Mapa } from "./Mapa";
+import Mapa from './Mapa';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

@@ -40,13 +40,13 @@ export function Login() {
   };
 
   const handleCorreoChange = (e) => {
-    setCorreo(e.target.value);
-    setCorreoError("");
+    setCorreo(e.target.value); // Actualizar el estado del correo
+    setCorreoError(""); // Resetear el error del correo
   };
 
   const handleContrasenaChange = (e) => {
-    setContrasena(e.target.value);
-    setContrasenaError("");
+    setContrasena(e.target.value); // Actualizar el estado de la contraseña
+    setContrasenaError(""); // Resetear el error de la contraseña
   };
 
   return (
@@ -67,7 +67,7 @@ export function Login() {
               id="correo"
               name="correo"
               value={correo}
-              onChange={handleCorreoChange}
+              onChange={handleCorreoChange} // Manejar el cambio en el correo
               required
               title="Por favor ingresa un correo electrónico válido"
             />
@@ -78,7 +78,7 @@ export function Login() {
               id="contrasena"
               name="contrasena"
               value={contrasena}
-              onChange={handleContrasenaChange}
+              onChange={handleContrasenaChange} // Manejar el cambio en la contraseña
             />
             {contrasenaError && <p className="error">{contrasenaError}</p>}
             <button type="submit">Iniciar sesión</button>

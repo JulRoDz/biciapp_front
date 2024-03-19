@@ -26,6 +26,12 @@ export function RecoveryForm() {
       // Lógica para enviar el correo y cambiar el estado a "codigo"
       setEstado("codigo");
     } else if (estado === "codigo") {
+      // Validación del código de verificación
+      if (!validateVerificationCode(codigo)) {
+        setErrors({ codigo: "El código de verificación debe contener exactamente 6 números" });
+        return;
+      }
+
       console.log("Código de verificación:", codigo);
       // Lógica para verificar el código y cambiar el estado a "contrasena"
       setEstado("contrasena");
@@ -51,6 +57,12 @@ export function RecoveryForm() {
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
+  };
+
+  // Función para validar código de verificación
+  const validateVerificationCode = (code) => {
+    const re = /^\d{6}$/; // Expresión regular para 6 números
+    return re.test(code);
   };
 
   // Función para validar contraseña
@@ -107,6 +119,7 @@ export function RecoveryForm() {
                 required
               />
               {errors.correo && <p className="error-message">{errors.correo}</p>} {/* Mostrar mensaje de error */}
+              {errors.codigo && <p className="error-message">{errors.codigo}</p>} {/* Mostrar mensaje de error */}
             </>
           )}
           <button type="submit">{estado === "correo" ? "Enviar" : "Verificar"}</button>
