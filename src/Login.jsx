@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./login.css";
 import Logo from './imagenes/Logo.svg';
 import PersonaCiclaColor from './imagenes/PersonaCiclaColor.svg';
@@ -8,6 +9,9 @@ export function Login() {
   const [contrasena, setContrasena] = useState("");
   const [correoError, setCorreoError] = useState("");
   const [contrasenaError, setContrasenaError] = useState("");
+
+  const navigate = useNavigate();
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,6 +41,9 @@ export function Login() {
     setContrasenaError(""); // Resetear el error si es válida
 
     // Aquí se manejaría el inicio de sesión
+    
+    // Redirigir a /mapa
+    navigate("/mapa");
   };
 
   const handleCorreoChange = (e) => {
