@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./mapa.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faCog, faUser, faLocationArrow } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faUser, faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 import Logo from './imagenes/Logo.svg';
+import Ubi  from './imagenes/blue-circle.png';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const Mapa = () => {
-  const [bikeShops, setBikeShops] = useState([]);
-  const [filteredBikeShops, setFilteredBikeShops] = useState([]);
   const [currentLocation, setCurrentLocation] = useState(null);
   const [mapInstance, setMapInstance] = useState(null);
 
@@ -33,9 +32,12 @@ const Mapa = () => {
     getCurrentLocation();
   }, []);
 
+
   const centerOnUserLocation = () => {
     if (mapInstance && currentLocation) {
+      const newZoom = 17;
       mapInstance.panTo(currentLocation);
+      mapInstance.setZoom(newZoom);
     }
   };
 
@@ -47,8 +49,6 @@ const Mapa = () => {
         </div>
         <div className="options">
           <div className="menu">
-            <FontAwesomeIcon icon={faCog} />
-            <FontAwesomeIcon icon={faUser} />
           </div>
           <div className="greeting">
             <FontAwesomeIcon icon={faUser} />
@@ -62,18 +62,18 @@ const Mapa = () => {
             googleMapsApiKey={GOOGLE_MAPS_API_KEY}
           >
             <GoogleMap
-              zoom={14}
+              zoom={16}
               center={currentLocation}
               mapContainerStyle={{ height: "84vh", width: "100%" }}
               onLoad={map => setMapInstance(map)}
             >
-              {filteredBikeShops.map((shop, index) => (
-                <Marker
-                  key={index}
-                  position={{ lat: shop.lat, lng: shop.lng }}
-                />
-              ))}
-              {/* Botón de centrar */}
+              <Marker
+                position={currentLocation}
+                icon={{
+                  url: Ubi
+                }}
+              />
+
               <button className="center-button" onClick={centerOnUserLocation}>
                 <FontAwesomeIcon icon={faLocationArrow} />
               </button>
@@ -87,6 +87,6 @@ const Mapa = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Mapa;

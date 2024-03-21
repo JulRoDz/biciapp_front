@@ -9,7 +9,6 @@ export function Login() {
   const [contrasena, setContrasena] = useState("");
   const [correoError, setCorreoError] = useState("");
   const [contrasenaError, setContrasenaError] = useState("");
-
   const navigate = useNavigate();
   
 
@@ -19,7 +18,7 @@ export function Login() {
       setCorreoError("Por favor ingresa un correo válido");
       return;
     }
-    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(correo)) {
+    if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(correo)) {
       setCorreoError("Por favor ingresa un correo válido");
       return;
     }

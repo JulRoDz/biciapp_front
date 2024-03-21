@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./register.css";
 import Logo from './imagenes/Logo.svg';
 import PersonaCiclaColor from './imagenes/PersonaCiclaColor.svg';
@@ -9,6 +10,7 @@ export function Register() {
     const [contrasena, setContrasena] = useState("");
     const [confirmarContrasena, setConfirmarContrasena] = useState("");
     const [errores, setErrores] = useState({});
+    const navigate = useNavigate();
 
     const validarCorreo = (correo) => {
         return /\S+@\S+\.\S+/.test(correo);
@@ -53,6 +55,7 @@ export function Register() {
         } else {
             setErrores(nuevosErrores);
         }
+        navigate("/");
     };
 
     const handleContrasenaChange = (e) => {

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./recoveryForm.css";
 import Logo from './imagenes/Logo.svg';
 import paswword1 from './imagenes/password 1.svg';
@@ -9,7 +10,8 @@ export function RecoveryForm() {
   const [password, setPassword] = useState(""); 
   const [confirmPassword, setConfirmPassword] = useState(""); 
   const [estado, setEstado] = useState("correo"); 
-  const [errors, setErrors] = useState({}); // Estado para almacenar errores de validación
+  const [errors, setErrors] = useState({}); 
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,8 +51,10 @@ export function RecoveryForm() {
       }
 
       console.log("Nueva contraseña:", password);
+      navigate("/")
       // Lógica para actualizar la contraseña
     }
+
   };
 
   // Función para validar correo electrónico
