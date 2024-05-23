@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import "./mapa.css";
+import "./Map.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUser, faLocationArrow } from '@fortawesome/free-solid-svg-icons';
-import Logo from './imagenes/Logo.svg';
-import Ubi  from './imagenes/blue-circle.png';
+import Logo from '../../images/Logo.svg';
+import Ubi  from '../../images/blue-circle.png';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
-const Mapa = () => {
+
+const Map = () => {
   const [currentLocation, setCurrentLocation] = useState(null);
   const [mapInstance, setMapInstance] = useState(null);
 
@@ -41,8 +42,10 @@ const Mapa = () => {
     }
   };
 
+
+
   return (
-    <div className="mapa">
+    <div className="map">
       <div className="header">
         <div className="logo">
           <img src={Logo} alt="LogoBiciApp" />
@@ -50,9 +53,9 @@ const Mapa = () => {
         <div className="options">
           <div className="menu">
           </div>
-          <div className="greeting">
+          <div className="greeting" >
             <FontAwesomeIcon icon={faUser} />
-            <p>Hola, Usuario</p>
+            <p>Hola,<a href="Profile">Usuario</a></p>
           </div>
         </div>
       </div>
@@ -89,4 +92,4 @@ const Mapa = () => {
   );
 };
 
-export default Mapa;
+export default Map;

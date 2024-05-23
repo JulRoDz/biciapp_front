@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./register.css";
-import Logo from './imagenes/Logo.svg';
-import PersonaCiclaColor from './imagenes/PersonaCiclaColor.svg';
+import "./Register.css";
+import Logo from '../../images/Logo.svg';
+import PersonaCiclaColor from '../../images/PersonaCiclaColor.svg';
 
 export function Register() {
     const [nombre, setNombre] = useState("");

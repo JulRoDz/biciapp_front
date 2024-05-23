@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./login.css";
-import Logo from './imagenes/Logo.svg';
-import PersonaCiclaColor from './imagenes/PersonaCiclaColor.svg';
+import "./Login.css";
+import Logo from '../../images/Logo.svg';
+import PersonaCiclaColor from '../../images/PersonaCiclaColor.svg';
 
 export function Login() {
   const [correo, setCorreo] = useState("");
@@ -42,7 +42,7 @@ export function Login() {
     // Aquí se manejaría el inicio de sesión
     
     // Redirigir a /mapa
-    navigate("/mapa");
+    navigate("/map");
   };
 
   const handleCorreoChange = (e) => {
@@ -97,4 +97,5 @@ export function Login() {
       </div>
     </div>
   );
-}
+};
+export default Login;

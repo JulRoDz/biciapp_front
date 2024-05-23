@@ -7,7 +7,7 @@
 }
 
 .logo img {
-  width: 100px;
+  width: 45px;
 }
 
 .options {
@@ -31,13 +31,13 @@
   margin-left: 10px;
 }
 
-.mapa {
+.map {
   position: relative;
 }
 
 .map-section {
   position: relative;
-  height:82vh;
+  height:100%;
   width: 100%;
 }
 

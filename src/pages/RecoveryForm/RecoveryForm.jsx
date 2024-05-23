@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./recoveryForm.css";
-import Logo from './imagenes/Logo.svg';
-import paswword1 from './imagenes/password 1.svg';
+import Logo from '../../images/Logo.svg';
+import paswword1 from '../../images/password 1.svg';
 
 export function RecoveryForm() {
   const [correo, setCorreo] = useState("");

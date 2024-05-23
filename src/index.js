@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 //JFRD
-import { Login } from './Login';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
