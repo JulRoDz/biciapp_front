@@ -1,81 +1,97 @@
 .login {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .left-section {
-    flex: 5.5;
-    background-color: #00acee;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
-  
-  .left-section img {
-    width: 200px; /* ajusta el tamaño de la imagen según sea necesario */
-  }
-  
-  .right-section {
-    flex: 4.5;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra los elementos horizontalmente */
-    justify-content: center;
-  }
-  
-  .right-section .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .right-section img {
-    width: 200px; /* ajusta el tamaño de la imagen según sea necesario */
-    margin-bottom: 20px; /* Agrega un margen inferior para separar la imagen del formulario */
-  }
-  
-  
-  .login h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .login form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .login input {
-    margin-bottom: 10px;
-  }
-  
-  .login button {
-    background-color: #00acee;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 10px;
-  }
-  
-  .login a {
-    text-decoration: none;
-    color: #00acee;
-    margin-top: 10px;
-  }
-  
-  .login label {
-    text-align: left; /* Alinea los textos a la izquierda */
-    width: 100%; /* Hace que el texto ocupe todo el ancho disponible */
-    margin-bottom: 4px; /* Espacio adicional entre los labels y los inputs */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #e4e2e2; /* Fondo más claro */
+  font-family: 'Arial', sans-serif; /* Fuente moderna */
+}
 
-    @media (max-width: 768px) {
-      .left-section {
-        display: none; /* Oculta la sección izquierda en dispositivos con un ancho máximo de 768px */
-      }
-    }
-  }
+.login img {
+  width: 120px;
+  margin-bottom: 20px;
+}
 
-  
+.login h3 {
+  margin-bottom: 20px;
+  color: #333; /* Texto más oscuro */
+  font-size: 24px; /* Tamaño de fuente más grande */
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff; /* Fondo blanco para el formulario */
+  padding: 20px;
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.login label {
+  margin-bottom: 5px;
+  color: #555; /* Texto más suave */
+  font-weight: bold; /* Texto en negrita */
+}
+
+.login input {
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ddd; /* Borde más suave */
+  font-size: 16px;
+  transition: border-color 0.3s ease; /* Transición suave */
+}
+
+.login input:focus {
+  border-color: #666; /* Cambia el color del borde al enfocar */
+  outline: none; /* Elimina el contorno predeterminado */
+}
+
+.login button {
+  background-color: #666666;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
+}
+
+.login button:hover {
+  background-color: #555; /* Cambia el color al pasar el mouse */
+  transform: scale(1.02); /* Aumenta ligeramente el tamaño */
+}
+
+.login button:active {
+  background-color: #777; /* Cambia el color al hacer clic */
+  transform: scale(0.98); /* Reduce ligeramente el tamaño */
+}
+
+.error {
+  color: #ff4d4d; /* Rojo más vibrante */
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.login a {
+  color: #666666;
+  text-decoration: none;
+  margin-top: 10px;
+  font-size: 14px;
+  transition: color 0.3s ease; /* Transición suave */
+}
+
+.login a:hover {
+  color: #333; /* Cambia el color al pasar el mouse */
+}
+
+.login p {
+  color: #555;
+  margin-top: 15px;
+  font-size: 14px;
+}

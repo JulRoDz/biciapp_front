@@ -1,64 +1,70 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #00acee;
-  padding: 10px;
-}
-
-.logo img {
-  width: 45px;
-}
-
-.options {
-  display: flex;
-  align-items: center;
-}
-
-.menu {
-  color: white;
-  font-size: 24px;
-  margin-right: 20px;
-}
-
-.greeting {
-  color: white;
-  display: flex;
-  align-items: center;
-}
-
-.greeting p {
-  margin-left: 10px;
-}
-
 .map {
   position: relative;
 }
 
 .map-section {
   position: relative;
-  height:100%;
+  height: calc(100vh - 60px); 
   width: 100%;
 }
 
-.center-button,
-.sandwich-button {
-  position: absolute;
-  background-color: #00acee;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 100%;
-  font-size: 24px;
-  cursor: pointer;
-}
 
 .center-button {
-  bottom: 10px;
-  left: 60px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1; 
+  background-color: #3b3b3b;
+  color: rgb(255, 255, 255);
+  padding: 12px; 
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+  transition: background-color 0.3s ease, transform 0.2s ease; 
 }
 
-.sandwich-button {
-  bottom: 10px;
-  left: 10px;
+.center-button:hover {
+  background-color: #555; /* Cambia el color de fondo al pasar el mouse */
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño */
 }
+
+.center-button:active {
+  background-color: #777; /* Cambia el color al hacer clic */
+  transform: scale(0.95); /* Reduce ligeramente el tamaño */
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+  }
+
+  .logo img {
+    width: 40px;
+  }
+
+  .map-section {
+    height: calc(100vh - 120px); /* Ajustar la altura en pantallas pequeñas */
+  }
+
+  .center-button,
+  .sandwich-button {
+    bottom: 10px;
+    left: 10px;
+    font-size: 20px;
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Ajustes para pantallas muy pequeñas */
+  .center-button,
+  .sandwich-button {
+    font-size: 16px;
+    padding: 6px;
+  }
+}
+

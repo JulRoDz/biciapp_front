@@ -1,0 +1,48 @@
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #e4e2e2;
+}
+
+.landing-page img {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.landing-page h1 {
+  color: #666666;
+  margin-bottom: 20px;
+}
+
+.landing-page p {
+  color: #242424;
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 600px;
+}
+
+.landing-page .btn {
+  background-color: #666666;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer; /* Cambia el cursor a una mano para indicar que es clickeable */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para darle profundidad */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
+}
+
+/* Efecto hover */
+.landing-page .btn:hover {
+  background-color: #555; /* Cambia el color de fondo al pasar el mouse */
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+/* Efecto active (cuando se hace clic) */
+.landing-page .btn:active {
+  background-color: #777; /* Cambia el color al hacer clic */
+  transform: scale(0.95); /* Reduce ligeramente el tamaño */
+}

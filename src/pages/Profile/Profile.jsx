@@ -1,31 +1,16 @@
 import React from "react";
 import "./Profile.css";
-import { useNavigate } from "react-router-dom";
-import Logo from '../../images/Logo.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faArrowLeft, faTrash, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faUpload } from '@fortawesome/free-solid-svg-icons';
 import ProfilePic from '../../images/profile-pic.svg';
+import Header from '../../components/Header/Header'; // Ajusta la ruta según tu estructura de carpetas
+
 
 const Perfil = () => {
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    navigate("/");
-  };
 
   return (
     <div className="perfil">
-      <div className="profile-header">
-      <div className="logo">
-          <img src={Logo} alt="LogoBiciApp" />
-        </div>
-        <button className="back-button" onClick={() => navigate("/mapa")}>
-          <FontAwesomeIcon icon={faArrowLeft} />
-        </button>
-        <button className="logout-button" onClick={handleLogout}>
-          Cerrar Sesión
-        </button>
-      </div>
+      <Header />
       <div className="profile-picture">
         <img src={ProfilePic} alt="Foto de perfil" />
         <div className="buttons">

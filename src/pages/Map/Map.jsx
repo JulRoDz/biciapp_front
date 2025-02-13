@@ -1,91 +1,88 @@
 import React, { useState, useEffect } from "react";
 import "./Map.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faUser, faLocationArrow } from '@fortawesome/free-solid-svg-icons';
-import Logo from '../../images/Logo.svg';
-import Ubi  from '../../images/blue-circle.png';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-
+import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
+import { GoogleMap, LoadScript } from '@react-google-maps/api'; // Eliminamos Marker
+import Header from '../../components/Header/Header';
 
 const Map = () => {
   const [currentLocation, setCurrentLocation] = useState(null);
   const [mapInstance, setMapInstance] = useState(null);
+  const [watchId, setWatchId] = useState(null);
 
   const GOOGLE_MAPS_API_KEY = 'AIzaSyCWNwuy9yAt-Gx-NW8PPVOYcwNJYbsmCT4';
 
   useEffect(() => {
-    const getCurrentLocation = () => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          position => {
-            const { latitude, longitude } = position.coords;
-            setCurrentLocation({ lat: latitude, lng: longitude });
-          },
-          error => {
-            console.error("Error obteniendo la ubicación: ", error);
-          }
-        );
-      } else {
-        console.error("Geolocalización no es soportada por este navegador");
+    if (navigator.geolocation) {
+      const id = navigator.geolocation.watchPosition(
+        position => {
+          const { latitude, longitude } = position.coords;
+          const location = { lat: latitude, lng: longitude };
+          setCurrentLocation(location);
+          console.log("Ubicación actualizada:", location);
+        },
+        error => {
+          console.error("Error obteniendo la ubicación:", error);
+        },
+        {
+          enableHighAccuracy: true, // Mayor precisión
+          maximumAge: 0, // No usar caché
+          timeout: 5000 // Espera máxima antes de fallar
+        }
+      );
+
+      setWatchId(id);
+    } else {
+      console.error("Geolocalización no es soportada por este navegador");
+    }
+
+    return () => {
+      if (watchId) {
+        navigator.geolocation.clearWatch(watchId);
       }
     };
-
-    getCurrentLocation();
   }, []);
-
 
   const centerOnUserLocation = () => {
     if (mapInstance && currentLocation) {
-      const newZoom = 17;
+      console.log("Centrando en:", currentLocation);
       mapInstance.panTo(currentLocation);
-      mapInstance.setZoom(newZoom);
+      mapInstance.setZoom(17);
     }
   };
 
-
-
   return (
     <div className="map">
-      <div className="header">
-        <div className="logo">
-          <img src={Logo} alt="LogoBiciApp" />
-        </div>
-        <div className="options">
-          <div className="menu">
-          </div>
-          <div className="greeting" >
-            <FontAwesomeIcon icon={faUser} />
-            <p>Hola,<a href="Profile">Usuario</a></p>
-          </div>
-        </div>
-      </div>
-      <div className="map-section">
-        {currentLocation && (
-          <LoadScript
-            googleMapsApiKey={GOOGLE_MAPS_API_KEY}
-          >
-            <GoogleMap
-              zoom={16}
-              center={currentLocation}
-              mapContainerStyle={{ height: "84vh", width: "100%" }}
-              onLoad={map => setMapInstance(map)}
-            >
-              <Marker
-                position={currentLocation}
-                icon={{
-                  url: Ubi
-                }}
-              />
+      <Header />
 
-              <button className="center-button" onClick={centerOnUserLocation}>
-                <FontAwesomeIcon icon={faLocationArrow} />
-              </button>
-              {/* Botón de menú */}
-              <div className="sandwich-button">
-                <FontAwesomeIcon icon={faBars} />
-              </div>
-            </GoogleMap>
-          </LoadScript>
+      <div className="map-section">
+        <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
+          <GoogleMap
+            zoom={16}
+            center={currentLocation || { lat: 0, lng: 0 }} // Ubicación predeterminada si no hay datos aún
+            mapContainerStyle={{
+              height: "calc(100vh - 60px)",
+              width: "100%",
+              margin: "0 auto"
+            }}
+            mapTypeId="hybrid"
+            options={{
+              mapTypeId: "hybrid",
+              mapTypeControl: true,
+              zoomControl: true,
+              fullscreenControl: false
+            }}
+            onLoad={map => setMapInstance(map)}
+          >
+            {/* No renderizamos el Marker */}
+          </GoogleMap>
+        </LoadScript>
+
+        {/* Botón para centrar el mapa en la ubicación */}
+        {currentLocation && (
+          <button className="center-button" onClick={centerOnUserLocation}>
+            <FontAwesomeIcon icon={faLocationArrow} />
+          </button>
         )}
       </div>
     </div>
